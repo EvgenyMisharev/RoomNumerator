@@ -46,6 +46,10 @@ namespace RoomNumerator
             }
 
             string numberPrefix = roomNumeratorWPF.NumberPrefix;
+            string startFrom = roomNumeratorWPF.StartFrom;
+            bool tryChech = int.TryParse(startFrom, out int cnt);
+            if (!tryChech) cnt = 1;
+
             string selectedNumberingDirection = roomNumeratorWPF.SelectedNumberingDirection;
             switch (selectedNumberingDirection)
             {
@@ -79,7 +83,6 @@ namespace RoomNumerator
             {
                 t.Start("Нумерация помещений");
 
-                int cnt = 1;
                 foreach (Room room in roomList)
                 {
                     if(numberPrefix == "" || numberPrefix == null)
@@ -88,7 +91,7 @@ namespace RoomNumerator
                     }
                     else
                     {
-                        room.get_Parameter(BuiltInParameter.ROOM_NUMBER).Set($"{numberPrefix}-{cnt}");
+                        room.get_Parameter(BuiltInParameter.ROOM_NUMBER).Set($"{numberPrefix}{cnt}");
                     }
                     cnt++;
                 }

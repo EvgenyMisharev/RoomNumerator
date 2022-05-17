@@ -8,6 +8,7 @@ namespace RoomNumerator
     public partial class RoomNumeratorWPF : Window
     {
         public string NumberPrefix;
+        public string StartFrom;
         public string SelectedNumberingDirection;
         public RoomNumeratorWPF()
         {
@@ -17,6 +18,7 @@ namespace RoomNumerator
         private void btn_Ok_Click(object sender, RoutedEventArgs e)
         {
             NumberPrefix = textBox_NumberPrefix.Text;
+            StartFrom = textBox_StartFrom.Text;
             SelectedNumberingDirection = (groupBox_NumberingDirection.Content as System.Windows.Controls.Grid)
                 .Children.OfType<RadioButton>()
                 .FirstOrDefault(rb => rb.IsChecked.Value == true)
@@ -35,6 +37,7 @@ namespace RoomNumerator
             if (e.Key == Key.Enter || e.Key == Key.Space)
             {
                 NumberPrefix = textBox_NumberPrefix.Text;
+                StartFrom = textBox_StartFrom.Text;
                 SelectedNumberingDirection = (groupBox_NumberingDirection.Content as System.Windows.Controls.Grid)
                     .Children.OfType<RadioButton>()
                     .FirstOrDefault(rb => rb.IsChecked.Value == true)
