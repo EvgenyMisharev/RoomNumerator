@@ -52,7 +52,7 @@ namespace RoomNumerator
                 case "radioButton_RightAndDown":
                     //Вправо и вниз
                     roomList = roomList.OrderByDescending(r => GetRoomCenter(r)
-                        , new CoordinatesBasedComparerYXDown())
+                        , new CoordinatesBasedComparerXYDown())
                         .ToList();
                     break;
                 case "radioButton_DownAndRight":
