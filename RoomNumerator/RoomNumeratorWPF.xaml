@@ -1,0 +1,40 @@
+﻿<Window x:Class="RoomNumerator.RoomNumeratorWPF"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Title="Нумератор помещений" 
+             Width="350" Height="300"
+             MinWidth="350" MaxWidth="350"
+             MinHeight="300" MaxHeight="300" 
+             WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" KeyDown="RoomNumeratorWPF_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="103*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="textBox_NumberPrefix" HorizontalAlignment="Left" Height="26" Margin="130,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Padding="0,0,5,0" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label_NumberPrefix" Content="Префикс номера:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.579,1.231" Width="120" Height="25" VerticalContentAlignment="Center" Padding="5,0,0,0"/>
+        <GroupBox x:Name="groupBox_NumberingDirection" Header="Направление нумерации:" HorizontalAlignment="Center" Height="170" Margin="10,0" Grid.Row="1" VerticalAlignment="Center" Width="322">
+            <Grid Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75*"/>
+                    <RowDefinition Height="75*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="205*"/>
+                    <ColumnDefinition Width="205*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="radioButton_RightAndDown" Content="Вправо и вниз" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Padding="4,0,0,0" IsChecked="True"/>
+                <RadioButton x:Name="radioButton_DownAndRight" Content="Вниз и вправо" Grid.Column="1" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Padding="4,0,0,0" VerticalContentAlignment="Center"/>
+                <RadioButton x:Name="radioButton_RightAndUp" Content="Вправо и вверх" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Center" Padding="4,0,0,0" VerticalContentAlignment="Center"/>
+                <RadioButton x:Name="radioButton_UpAndRight" Content="Вверх и вправо" Grid.Column="1" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Center" Padding="4,0,0,0" VerticalContentAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+
+        <Button x:Name="btn_Ok" Content="Ок" HorizontalAlignment="Right" Margin="0,0,125,10" VerticalAlignment="Bottom" Width="100" Height="26" Click="btn_Ok_Click" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_Cancel" Content="Отмена" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Height="26" Click="btn_Cancel_Click" Grid.Row="2" Grid.Column="1"/>
+    </Grid>
+</Window>
