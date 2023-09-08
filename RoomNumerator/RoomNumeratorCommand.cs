@@ -47,6 +47,7 @@ namespace RoomNumerator
 
             string numberPrefix = roomNumeratorWPF.NumberPrefix;
             string startFrom = roomNumeratorWPF.StartFrom;
+            int formatLength = startFrom.Length;
             bool tryChech = int.TryParse(startFrom, out int cnt);
             if (!tryChech) cnt = 1;
 
@@ -91,7 +92,7 @@ namespace RoomNumerator
                     }
                     else
                     {
-                        room.get_Parameter(BuiltInParameter.ROOM_NUMBER).Set($"{numberPrefix}{cnt}");
+                        room.get_Parameter(BuiltInParameter.ROOM_NUMBER).Set($"{numberPrefix}{cnt.ToString($"D{formatLength}")}");
                     }
                     cnt++;
                 }
